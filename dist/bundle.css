@@ -1,0 +1,185 @@
+.header {
+  background-color: chocolate;
+}
+
+.header__container {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header__link {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer {
+  background-color: rgb(69, 69, 69);
+}
+
+.footer__container {
+  padding: 20px;
+  font-size: 12px;
+}
+
+.footer__copyright {
+  text-align: center;
+  color: antiquewhite;
+}
+.sidebar {
+ padding: 20px;
+}
+
+.sidebar__header {
+  font-size: 30px;
+  color: rgb(220, 222, 222);
+  font-weight: bold;
+  margin: 10px 0 20px 0;
+}
+
+.sidebar__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.loading {
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgba(240, 255, 255, 0.367);
+}
+
+.loading__text {
+  color: azure;
+  font-size: 20px;
+}
+.item-category__btn {
+  display: block;
+  background-color: transparent;
+  border: none;
+  padding: 7px;
+  width: 100%;
+  text-align: left;
+  color: aliceblue;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.item-category__btn:hover {
+ background-color: rgb(157, 157, 157);
+}
+
+.item-category__active {
+  background-color: aliceblue;
+  color: brown;
+}
+
+.item-category__active>.item-category__btn  {
+  color: brown;
+  font-weight: bold;
+}
+
+.card-api {
+  background-color: aliceblue;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.card-api__index {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 60px;
+  color: rgba(165, 42, 42, 0.3);
+}
+
+.card-api__name {
+  font-size: 30px;
+  font-weight: bold;
+  color: brown;
+}
+
+.card-api__description {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-api__hr {
+  margin-top: 20px;
+}
+
+.card-api__th {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.card-api__auth {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.card-api__link {
+  margin-bottom: 5px;
+}
+
+.card-api__link a {
+  font-weight: bold;
+  color: rgb(53, 122, 250);
+  text-decoration: none;
+  background-image: url(../../../static/link-external-small-ltr-progressive.svg);
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 0.9em;
+  padding-right: 1.2em;
+}
+
+
+.card-api__category {
+  margin-bottom: 15px;
+}
+
+.card-api__cors {
+  margin-bottom: 5px;
+}
+
+.card-api__https {
+  margin-bottom: 5px;
+}
+.list-apis__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px;
+}
+.item-pagination__btn {
+  display: block;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: beige;
+  cursor: pointer;
+}
+
+.item-pagination__active .item-pagination__btn {
+  background-color: rgb(69, 69, 69);
+  color: beige;
+}
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 5px;
+  padding: 0;
+  margin: 30px 0;
+}
+.mainContainer {
+  padding: 0 20px;
+}
