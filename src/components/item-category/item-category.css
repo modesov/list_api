@@ -1,0 +1,25 @@
+.item-category__btn {
+  display: block;
+  background-color: transparent;
+  border: none;
+  padding: 7px;
+  width: 100%;
+  text-align: left;
+  color: aliceblue;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.item-category__btn:hover {
+ background-color: rgb(157, 157, 157);
+}
+
+.item-category__active {
+  background-color: aliceblue;
+  color: brown;
+}
+
+.item-category__active>.item-category__btn  {
+  color: brown;
+  font-weight: bold;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "fr-mod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "live-server",
+    "build": "rollup -c --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "eslint": "^8.41.0",
+    "live-server": "^1.2.2",
+    "posthtml-include": "^1.7.4",
+    "rollup": "^3.23.0",
+    "rollup-plugin-import-css": "^3.2.1",
+    "rollup-plugin-posthtml-template": "^1.3.0"
+  },
+  "dependencies": {
+    "on-change": "^4.0.2"
+  }
+}

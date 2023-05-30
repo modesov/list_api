@@ -1,0 +1,13 @@
+.footer {
+  background-color: rgb(69, 69, 69);
+}
+
+.footer__container {
+  padding: 20px;
+  font-size: 12px;
+}
+
+.footer__copyright {
+  text-align: center;
+  color: antiquewhite;
+}

@@ -1,0 +1,13 @@
+.item-pagination__btn {
+  display: block;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: beige;
+  cursor: pointer;
+}
+
+.item-pagination__active .item-pagination__btn {
+  background-color: rgb(69, 69, 69);
+  color: beige;
+}

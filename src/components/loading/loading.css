@@ -1,0 +1,12 @@
+.loading {
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgba(240, 255, 255, 0.367);
+}
+
+.loading__text {
+  color: azure;
+  font-size: 20px;
+}
