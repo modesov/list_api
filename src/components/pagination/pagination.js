@@ -45,7 +45,7 @@ export class Pagination extends BaseComponent {
 
       updateURL({page: page > 1 ? page : null});
 
-      this.appState.currentPage = page
+      this.appState.currentPage = page;
     }    
   }
 
@@ -54,8 +54,6 @@ export class Pagination extends BaseComponent {
 
     const countPage = Math.ceil(this.parentState.count / LIMIT_PER_PAGE);
     
-    console.log(this.appState.currentPage);
-
     for (let i = 1; i <= countPage; i++ ) {
       this.el.append((new ItemPagination(i, i, this.appState.currentPage === i)).render());
     }

@@ -1258,6 +1258,8 @@
 	    }
 
 	    this.app.append(wrapperBox);
+	    
+	    window.scrollBy(0, 0);
 	  }
 
 	  getHeader() {
@@ -1422,8 +1424,6 @@
 
 	    const countPage = Math.ceil(this.parentState.count / LIMIT_PER_PAGE);
 	    
-	    console.log(this.appState.currentPage);
-
 	    for (let i = 1; i <= countPage; i++ ) {
 	      this.el.append((new ItemPagination(i, i, this.appState.currentPage === i)).render());
 	    }
