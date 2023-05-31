@@ -1258,8 +1258,6 @@
 	    }
 
 	    this.app.append(wrapperBox);
-	    
-	    window.scrollBy(0, 0);
 	  }
 
 	  getHeader() {
@@ -1436,16 +1434,100 @@
 	  }
 	}
 
+	var FilterHtml = (_) => `<div class="filter__header">Фильтр</div>
+<form class="filter__form" action="">
+  <select class="filter__select" name="auth" id="auth_select">
+    <option value="">All auth</option>
+    <option value="OAuth">OAuth</option>
+    <option value="User-Agent">User-Agent</option>
+    <option value="X-Mashape-Key">X-Mashape-Key</option>
+    <option value="apiKey">apiKey</option>
+    <option value="null">no</option>
+  </select>
+  <select class="filter__select" name="cors" id="cors_select">
+    <option value="">All cors</option>
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+    <option value="unknown">Unknown</option>
+    <option value="unkown">Other</option>
+  </select>
+  <select class="filter__select" name="https" id="https_select">
+    <option value="">All http</option>
+    <option value="false">No</option>
+    <option value="true">Yes</option>
+  </select>
+</form>`;
+
+	class Filter extends BaseComponent {
+	  constructor(parentState) {
+	    super('div', 'filter');
+	    this.parentState = parentState;
+	  }  
+
+	  handleFilter(event) {
+	    this.parentState.filter[event.target.name] = event.target.value;
+	  }
+
+	  render() {
+	    this.renderTemplate(FilterHtml());
+
+	    const selectedAuth = this.parentState.filter.auth;
+	    const selectedCors = this.parentState.filter.cors;
+	    const selectedHttps = this.parentState.filter.https;
+
+	    if (selectedAuth) {
+	      const elAuth = this.el.querySelector(`#auth_select option[value=${selectedAuth}]`);
+	      if (elAuth) {
+	        elAuth.selected = true;
+	      }
+	    }
+	    
+	    if (selectedCors) {
+	      const elCors = this.el.querySelector(`#cors_select option[value=${selectedCors}]`);
+
+	      if (elCors) {
+	        elCors.selected = true;
+	      }
+	    }
+
+	    if (selectedHttps) {
+	      const elHttps = this.el.querySelector(`#https_select option[value=${selectedHttps}]`);
+	      
+	      if (elHttps) {
+	        elHttps.selected = true;
+	      }
+	    }
+
+	    
+	    this.el.querySelector('.filter__form').addEventListener('input', this.handleFilter.bind(this));
+	    return this.el;
+	  }
+	}
+
 	class MainView extends AbstractView {
 	  state = {
 	    list: [],
 	    loading: false,
 	    offset:  0,
-	    count: 0
+	    count: 0,
+	    filter: {}
 	  };
 
 	  constructor(appState) {
 	    super(appState, 'Список api');
+	    const params = getParams();
+	    if (params.auth) {
+	      this.state.filter.auth = params.auth;
+	    }
+
+	    if (params.cors) {
+	      this.state.filter.cors = params.cors;
+	    }
+
+	    if (params.https) {
+	      this.state.filter.https = params.https;
+	    }
+	    
 	    this.state = onChange(this.state, this.stateHook.bind(this));
 	    this.loadDataApis();
 	  }
@@ -1490,7 +1572,12 @@
 	  }
 
 	  stateHook(path) {
-	    if (['list', 'offset'].includes(path)) {
+	    if(path.includes('filter.')) {
+	      updateURL(this.state.filter);
+	      this.loadDataApis();
+	    }
+	    
+	    if (['list', 'offset', 'filter'].includes(path)) {
 	      this.render();
 	    }    
 	  }
@@ -1498,6 +1585,7 @@
 	  createEl() {
 	    const main = document.createElement('main');
 	    main.classList.add('mainContainer');
+	    main.append((new Filter(this.state)).render());
 	    main.append((new ListApis(this.appState, this.state)).render());
 	    if (this.state.count > LIMIT_PER_PAGE && !this.state.loading) {
 	      main.append((new Pagination(this.appState, this.state)).render());

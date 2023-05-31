@@ -183,3 +183,16 @@
 .mainContainer {
   padding: 0 20px;
 }
+.filter__header {
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(220, 222, 222);
+  margin-top: 30px;
+  margin-bottom: 19px;
+}
+
+.filter__select {
+  padding: 8px;
+  border: none;
+  outline: 0;
+}
