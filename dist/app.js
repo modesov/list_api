@@ -1277,7 +1277,7 @@
 	  }
 	}
 
-	const LIMIT_PER_PAGE = 10;
+	const LIMIT_PER_PAGE = 4;
 
 	var CardApiHtml = (_) => `<div class="card-api__index">${ _.index }</div>
 <div class="card-api__name">${ _.API }</div>
